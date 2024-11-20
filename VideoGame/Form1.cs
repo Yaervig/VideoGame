@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace VideoGame
 {
     public partial class Form1 : Form
@@ -86,6 +85,17 @@ namespace VideoGame
         private void bNext_Click(object sender, EventArgs e)
         {
             pBattle.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOpenMap_Click(object sender, EventArgs e)
+        {
+           Form2 form2 = new Form2();
+            form2.Show();
         }
     }
 }
