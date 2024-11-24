@@ -10,6 +10,7 @@ namespace VideoGame
     internal class Player : Fighter
     {
         //private int Gold;
+        private int targetIndex;
 
         public Player()
         {
@@ -17,6 +18,17 @@ namespace VideoGame
             MaxHp = 20;
             Strength = 5;
             Defense = 5;
+            targetIndex = -1;
+        }
+
+        public void setTargetIndex(int i)
+        {
+            targetIndex = i;
+        }
+
+        public int getTargetIndex()
+        {
+            return targetIndex;
         }
     }
 }
