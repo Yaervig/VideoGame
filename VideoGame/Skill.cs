@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Alex
 namespace VideoGame
 {
     internal class Skill
     {
-        protected string sName { get; set; }
+        public string sName { get; set; }
         protected string sVerb { get; set; }
         protected int damMod { get; set; }  
         protected bool heals { get; set; }
@@ -22,26 +23,30 @@ namespace VideoGame
         public Skill(string n, string v, int m, bool h)
         { sName = n; sVerb = v; damMod = m; heals = h; }
 
-        public void doSkill(Fighter source, Fighter target)
+        public string doSkill(Fighter source, Fighter target)
         { 
-            if (heals) { healCalc(source, target); }    
-            else { damageCalc(source, target); }
+            if (heals) {return healCalc(source, target); }    
+            else { return damageCalc(source, target); }
         }
 
 
-        public void damageCalc(Fighter source, Fighter target)
+        public string damageCalc(Fighter source, Fighter target)
         {
             int damage = source.getStrength() - target.getDefense() + damMod;
+            if (damage <= 0)
+                damage = 1;
+
             int hp = target.getHp();
 
             int remaining = hp - damage;
 
             target.setHp(remaining);
 
-            doFeedback(source, target, damage, remaining);
+            string msg = doFeedback(source, target, damage, remaining);
+            return msg;
         }
 
-        public void healCalc(Fighter source, Fighter target)
+        public string healCalc(Fighter source, Fighter target)
         {
             Random r = new Random();
             int power = source.getStrength();
@@ -49,6 +54,9 @@ namespace VideoGame
             int upHP = r.Next(0, power);
 
             target.setHp(upHP + target.getHp());
+
+            string msg = doFeedback(source, target, upHP, target.getHp());
+            return msg;
         }
 
         public string doFeedback(Fighter source, Fighter target, int damage, int remaining)
@@ -65,5 +73,6 @@ namespace VideoGame
 
             return msg;
         }
+        //End Alex
     }
 }

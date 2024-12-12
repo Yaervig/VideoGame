@@ -18,12 +18,8 @@ namespace VideoGame
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            List<Skill> skillList = new List<Skill>
-            {
-                new Skill("Basic", "attacks"),
-                new Skill("Fireball", "blasts", 3),
-                new Skill("Heal", "heals", 0, true)
-            };
+            
         }
+
     }
 }

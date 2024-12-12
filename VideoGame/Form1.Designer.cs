@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.pBattle = new System.Windows.Forms.Panel();
+            this.newFeedback = new System.Windows.Forms.Label();
+            this.oldFeedback = new System.Windows.Forms.Label();
             this.lTarget = new System.Windows.Forms.Label();
             this.lEnemyCHp = new System.Windows.Forms.Label();
             this.lEnemyBHp = new System.Windows.Forms.Label();
-            this.pbEnemyC = new System.Windows.Forms.PictureBox();
-            this.pbEnemyB = new System.Windows.Forms.PictureBox();
-            this.bShop = new System.Windows.Forms.Button();
             this.lEnemyAHp = new System.Windows.Forms.Label();
             this.lPlayerHp = new System.Windows.Forms.Label();
+            this.bShop = new System.Windows.Forms.Button();
             this.pEndBattle = new System.Windows.Forms.Panel();
             this.bNext = new System.Windows.Forms.Button();
             this.pBattleActions = new System.Windows.Forms.Panel();
@@ -44,13 +44,15 @@
             this.bSkills = new System.Windows.Forms.Button();
             this.lbSkills = new System.Windows.Forms.ListBox();
             this.pbEnemyA = new System.Windows.Forms.PictureBox();
+            this.pbEnemyB = new System.Windows.Forms.PictureBox();
+            this.pbEnemyC = new System.Windows.Forms.PictureBox();
             this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.pBattle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyB)).BeginInit();
             this.pEndBattle.SuspendLayout();
             this.pBattleActions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +61,8 @@
             this.pBattle.BackColor = System.Drawing.Color.Tomato;
             this.pBattle.BackgroundImage = global::VideoGame.Properties.Resources.R;
             this.pBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pBattle.Controls.Add(this.newFeedback);
+            this.pBattle.Controls.Add(this.oldFeedback);
             this.pBattle.Controls.Add(this.lTarget);
             this.pBattle.Controls.Add(this.lEnemyCHp);
             this.pBattle.Controls.Add(this.lEnemyBHp);
@@ -75,6 +79,22 @@
             this.pBattle.Name = "pBattle";
             this.pBattle.Size = new System.Drawing.Size(800, 455);
             this.pBattle.TabIndex = 5;
+            // 
+            // newFeedback
+            // 
+            this.newFeedback.AutoSize = true;
+            this.newFeedback.Location = new System.Drawing.Point(27, 396);
+            this.newFeedback.Name = "newFeedback";
+            this.newFeedback.Size = new System.Drawing.Size(0, 13);
+            this.newFeedback.TabIndex = 15;
+            // 
+            // oldFeedback
+            // 
+            this.oldFeedback.AutoSize = true;
+            this.oldFeedback.Location = new System.Drawing.Point(27, 372);
+            this.oldFeedback.Name = "oldFeedback";
+            this.oldFeedback.Size = new System.Drawing.Size(0, 13);
+            this.oldFeedback.TabIndex = 14;
             // 
             // lTarget
             // 
@@ -109,44 +129,6 @@
             this.lEnemyBHp.TabIndex = 16;
             this.lEnemyBHp.Text = "20 / 20";
             // 
-            // pbEnemyC
-            // 
-            this.pbEnemyC.BackColor = System.Drawing.Color.Transparent;
-            this.pbEnemyC.Image = global::VideoGame.Properties.Resources.dbzw90t_c2f2ed32_f000_4098_91f6_15a8c8e244b1_removebg_preview;
-            this.pbEnemyC.Location = new System.Drawing.Point(641, 245);
-            this.pbEnemyC.Name = "pbEnemyC";
-            this.pbEnemyC.Size = new System.Drawing.Size(104, 79);
-            this.pbEnemyC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbEnemyC.TabIndex = 15;
-            this.pbEnemyC.TabStop = false;
-            this.pbEnemyC.Click += new System.EventHandler(this.pbEnemyC_Click);
-            // 
-            // pbEnemyB
-            // 
-            this.pbEnemyB.BackColor = System.Drawing.Color.Transparent;
-            this.pbEnemyB.Image = global::VideoGame.Properties.Resources.dbzw90t_c2f2ed32_f000_4098_91f6_15a8c8e244b1_removebg_preview;
-            this.pbEnemyB.Location = new System.Drawing.Point(531, 204);
-            this.pbEnemyB.Name = "pbEnemyB";
-            this.pbEnemyB.Size = new System.Drawing.Size(104, 79);
-            this.pbEnemyB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbEnemyB.TabIndex = 14;
-            this.pbEnemyB.TabStop = false;
-            this.pbEnemyB.Click += new System.EventHandler(this.pbEnemyB_Click);
-            // 
-            // bShop
-            // 
-            this.bShop.BackgroundImage = global::VideoGame.Properties.Resources.Screenshot_2024_11_19_141920;
-            this.bShop.Font = new System.Drawing.Font("Monotype Corsiva", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShop.ForeColor = System.Drawing.Color.Gold;
-            this.bShop.Location = new System.Drawing.Point(711, 24);
-            this.bShop.Margin = new System.Windows.Forms.Padding(2);
-            this.bShop.Name = "bShop";
-            this.bShop.Size = new System.Drawing.Size(87, 39);
-            this.bShop.TabIndex = 13;
-            this.bShop.Text = "Shop";
-            this.bShop.UseVisualStyleBackColor = true;
-            this.bShop.Click += new System.EventHandler(this.bShop_Click);
-            // 
             // lEnemyAHp
             // 
             this.lEnemyAHp.AutoSize = true;
@@ -170,6 +152,20 @@
             this.lPlayerHp.Size = new System.Drawing.Size(78, 17);
             this.lPlayerHp.TabIndex = 9;
             this.lPlayerHp.Text = "20 / 20";
+            // 
+            // bShop
+            // 
+            this.bShop.BackgroundImage = global::VideoGame.Properties.Resources.Screenshot_2024_11_19_141920;
+            this.bShop.Font = new System.Drawing.Font("Monotype Corsiva", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShop.ForeColor = System.Drawing.Color.Gold;
+            this.bShop.Location = new System.Drawing.Point(711, 24);
+            this.bShop.Margin = new System.Windows.Forms.Padding(2);
+            this.bShop.Name = "bShop";
+            this.bShop.Size = new System.Drawing.Size(87, 39);
+            this.bShop.TabIndex = 13;
+            this.bShop.Text = "Shop";
+            this.bShop.UseVisualStyleBackColor = true;
+            this.bShop.Click += new System.EventHandler(this.bShop_Click);
             // 
             // pEndBattle
             // 
@@ -199,7 +195,7 @@
             this.pBattleActions.Controls.Add(this.lbSkills);
             this.pBattleActions.Location = new System.Drawing.Point(99, 320);
             this.pBattleActions.Name = "pBattleActions";
-            this.pBattleActions.Size = new System.Drawing.Size(233, 104);
+            this.pBattleActions.Size = new System.Drawing.Size(233, 120);
             this.pBattleActions.TabIndex = 11;
             // 
             // bAttack
@@ -237,10 +233,11 @@
             this.lbSkills.ItemHeight = 21;
             this.lbSkills.Items.AddRange(new object[] {
             "Fireball",
-            "Heal"});
+            "Heal",
+            "Lightning"});
             this.lbSkills.Location = new System.Drawing.Point(150, 46);
             this.lbSkills.Name = "lbSkills";
-            this.lbSkills.Size = new System.Drawing.Size(73, 46);
+            this.lbSkills.Size = new System.Drawing.Size(73, 67);
             this.lbSkills.TabIndex = 12;
             this.lbSkills.Visible = false;
             this.lbSkills.SelectedIndexChanged += new System.EventHandler(this.lbSkills_SelectedIndexChanged);
@@ -256,6 +253,30 @@
             this.pbEnemyA.TabIndex = 7;
             this.pbEnemyA.TabStop = false;
             this.pbEnemyA.Click += new System.EventHandler(this.pbEnemyA_Click);
+            // 
+            // pbEnemyB
+            // 
+            this.pbEnemyB.BackColor = System.Drawing.Color.Transparent;
+            this.pbEnemyB.Image = global::VideoGame.Properties.Resources.dbzw90t_c2f2ed32_f000_4098_91f6_15a8c8e244b1_removebg_preview;
+            this.pbEnemyB.Location = new System.Drawing.Point(531, 204);
+            this.pbEnemyB.Name = "pbEnemyB";
+            this.pbEnemyB.Size = new System.Drawing.Size(104, 79);
+            this.pbEnemyB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEnemyB.TabIndex = 14;
+            this.pbEnemyB.TabStop = false;
+            this.pbEnemyB.Click += new System.EventHandler(this.pbEnemyB_Click);
+            // 
+            // pbEnemyC
+            // 
+            this.pbEnemyC.BackColor = System.Drawing.Color.Transparent;
+            this.pbEnemyC.Image = global::VideoGame.Properties.Resources.dbzw90t_c2f2ed32_f000_4098_91f6_15a8c8e244b1_removebg_preview;
+            this.pbEnemyC.Location = new System.Drawing.Point(641, 245);
+            this.pbEnemyC.Name = "pbEnemyC";
+            this.pbEnemyC.Size = new System.Drawing.Size(104, 79);
+            this.pbEnemyC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEnemyC.TabIndex = 15;
+            this.pbEnemyC.TabStop = false;
+            this.pbEnemyC.Click += new System.EventHandler(this.pbEnemyC_Click);
             // 
             // pbPlayer
             // 
@@ -279,11 +300,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pBattle.ResumeLayout(false);
             this.pBattle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyB)).EndInit();
             this.pEndBattle.ResumeLayout(false);
             this.pBattleActions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemyA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEnemyC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             this.ResumeLayout(false);
 
@@ -301,6 +322,8 @@
         private System.Windows.Forms.Button bSkills;
         private System.Windows.Forms.ListBox lbSkills;
         private System.Windows.Forms.Panel pEndBattle;
+        private System.Windows.Forms.Label oldFeedback;
+        private System.Windows.Forms.Label newFeedback;
         private System.Windows.Forms.Button bShop;
         private System.Windows.Forms.PictureBox pbEnemyC;
         private System.Windows.Forms.PictureBox pbEnemyB;

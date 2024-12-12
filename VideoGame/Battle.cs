@@ -10,7 +10,19 @@ namespace VideoGame
     internal class Battle
     {
         bool inProgress;
-      
+
+        //Alex
+        string msg;
+
+        List<Skill> skillList = new List<Skill>
+            {
+                new Skill("Basic", "attacks"),
+                new Skill("Fireball", "blasts", 3),
+                new Skill("Heal", "heals", 0, true),
+                new Skill("Lightning", "zaps", -1)
+            };
+        //End Alex
+
         public Battle()
         {
             inProgress = true;
@@ -25,48 +37,26 @@ namespace VideoGame
         {
             return inProgress;
         }
+        
+        //Alex
+        public void setMsg(string a) {  msg = a; }
+        public string getMsg() { return msg; }
+
+        public void addSkill(Skill newSkill) { skillList.Add(newSkill); }
 
         public void castSkill(Fighter attacker, Fighter defender, String skill)
         {
-            switch (skill)
+            foreach (Skill s in skillList)
             {
-                case "Basic":
-                    defender.setHp(defender.getHp() - damageCalc(attacker.getStrength(), defender.getDefense(), defender.getHp()));
-                    break;
-                case "Fireball":
-                    defender.setHp(defender.getHp() - damageCalc(6, 0, defender.getHp()));
-                    break;
-                case "Heal":
-                    attacker.setHp(attacker.getHp() + healCalc(6, attacker.getMaxHp(), attacker.getHp()));
-                    break;
-                default:
-                    break;
+                if (s.sName == skill)
+                    msg = s.doSkill(attacker, defender);
             }
         }
+        //End Alex
 
         public void enemyTurn(Fighter attacker, Fighter defender)
         {
             castSkill(attacker, defender, "Basic");
-        }
-
-        public int damageCalc(int dmg, int def, int hp)
-        {
-            int damage = dmg - def;
-
-            if (damage < 1)
-                damage = 1;
-      
-            if (damage <= hp)
-                return damage;
-            else
-                return hp;
-        }
-
-        public int healCalc(int heal, int maxHp, int hp)
-        {
-            if (heal < maxHp - hp)
-                return heal;
-            return maxHp - hp;
         }
     }
 }

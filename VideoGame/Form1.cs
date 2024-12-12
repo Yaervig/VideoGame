@@ -78,6 +78,7 @@ namespace VideoGame
 
             updatelPlayerHp();
             updatelEnemyHp();
+            updateFeedback();
 
             if (i != -1 && enemy[i].getHp() <= 0)
             {
@@ -118,6 +119,14 @@ namespace VideoGame
             }
         }
 
+        //Alex
+        private void updateFeedback()
+        {
+            oldFeedback.Text = newFeedback.Text;
+            newFeedback.Text = battle.getMsg();
+        }
+        //End Alex
+
         private void updatelTarget()
         {
             int i = player.getTargetIndex();
@@ -150,6 +159,14 @@ namespace VideoGame
             player.setTargetIndex(2);
             updatelTarget();
         }
+
+        //Alex
+        private void addSkill(string name, string verb, int mult, bool heals)
+        {
+            lbSkills.Items.Add(name);
+            battle.addSkill(new Skill(name, verb, mult, heals));
+        }
+        //End Alex
 
         private void bShop_Click(object sender, EventArgs e)
         {
