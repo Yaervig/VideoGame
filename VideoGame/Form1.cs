@@ -26,7 +26,10 @@ namespace VideoGame
         public Form1()
         {
             InitializeComponent();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
             pbEnemies[0] = pbEnemyA;
             pbEnemies[1] = pbEnemyB;
             pbEnemies[2] = pbEnemyC;

@@ -44,7 +44,7 @@ namespace VideoGame
 
         public void addSkill(Skill newSkill) { skillList.Add(newSkill); }
 
-        public void castSkill(Fighter attacker, Fighter defender, String skill)
+        public void castSkill(dynamic attacker, dynamic defender, String skill)
         {
             foreach (Skill s in skillList)
             {
@@ -54,7 +54,7 @@ namespace VideoGame
         }
         //End Alex
 
-        public void enemyTurn(Fighter attacker, Fighter defender)
+        public void enemyTurn(dynamic attacker, dynamic defender)
         {
             castSkill(attacker, defender, "Basic");
         }

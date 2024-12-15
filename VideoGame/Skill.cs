@@ -23,19 +23,17 @@ namespace VideoGame
         public Skill(string n, string v, int m, bool h)
         { sName = n; sVerb = v; damMod = m; heals = h; }
 
-        public string doSkill(Fighter source, Fighter target)
+        public string doSkill(dynamic source, dynamic target)
         { 
-            if (heals) {return healCalc(source, source); }    
+            if (heals) {return healCalc(source, target); }    
             else { return damageCalc(source, target); }
         }
 
 
-        public string damageCalc(Fighter source, Fighter target)
+        public string damageCalc(dynamic source, dynamic target)
         {
             int damage = source.getStrength() - target.getDefense() + damMod;
-            if (damage <= 0)
-                damage = 1;
-
+            if (damage < 1) { damage = 1; }
             int hp = target.getHp();
 
             int remaining = hp - damage;
@@ -46,7 +44,7 @@ namespace VideoGame
             return msg;
         }
 
-        public string healCalc(Fighter source, Fighter target)
+        public string healCalc(dynamic source, dynamic target)
         {
             Random r = new Random();
             int power = source.getStrength();
@@ -59,17 +57,25 @@ namespace VideoGame
             return msg;
         }
 
-        public string doFeedback(Fighter source, Fighter target, int damage, int remaining)
+        public string doFeedback(dynamic source, dynamic target, int damage, int remaining)
         {
             string msg;
-            string tgt = target.ToString();
+            string src = source.getName();
+            string tgt = target.getName();
 
-            if (source == target ) { tgt = "themself"; }
+            try
+            {
+                if (source == target) { tgt = "themself"; }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            if (heals) { msg = $"{source.ToString()} heals {tgt} for {damage} HP!"; }
-            else { msg = $"{source.ToString()} {sVerb} {tgt} for {damage} damage!"; }
+            if (heals) { msg = $"{src} heals {tgt} for {damage} HP!"; }
+            else { msg = $"{src} {sVerb} {tgt} for {damage} damage!"; }
 
-            if (remaining <= 0) { msg += $" The {tgt} passes out!"; }
+            if (remaining <= 0) { msg += $"The {tgt} passes out!"; }
 
             return msg;
         }
