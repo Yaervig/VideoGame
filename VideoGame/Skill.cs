@@ -25,7 +25,7 @@ namespace VideoGame
 
         public string doSkill(Fighter source, Fighter target)
         { 
-            if (heals) {return healCalc(source, target); }    
+            if (heals) {return healCalc(source, source); }    
             else { return damageCalc(source, target); }
         }
 
@@ -66,10 +66,10 @@ namespace VideoGame
 
             if (source == target ) { tgt = "themself"; }
 
-            if (heals) { msg = $"{source} heals {tgt} for {damage} HP!"; }
-            else { msg = $"{source} {sVerb} {tgt} for {damage} damage!"; }
+            if (heals) { msg = $"{source.ToString()} heals {tgt} for {damage} HP!"; }
+            else { msg = $"{source.ToString()} {sVerb} {tgt} for {damage} damage!"; }
 
-            if (remaining <= 0) { msg += $"The {tgt} passes out!"; }
+            if (remaining <= 0) { msg += $" The {tgt} passes out!"; }
 
             return msg;
         }

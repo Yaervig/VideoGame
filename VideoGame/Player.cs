@@ -11,14 +11,25 @@ namespace VideoGame
     {
         //private int Gold;
         private int targetIndex;
+        private int level;
 
         public Player()
         {
-            Hp = 20;
-            MaxHp = 20;
+            Hp = 200;
+            MaxHp = 200;
             Strength = 5;
             Defense = 5;
             targetIndex = -1;
+        }
+
+        public void setLevel(int i)
+        {
+            level = i;
+        }
+
+        public int getLevel()
+        {
+            return level;
         }
 
         public void setTargetIndex(int i)

@@ -19,7 +19,7 @@ namespace VideoGame
                 new Skill("Basic", "attacks"),
                 new Skill("Fireball", "blasts", 3),
                 new Skill("Heal", "heals", 0, true),
-                new Skill("Lightning", "zaps", -1)
+                new Skill("Lightning", "zaps", 3)
             };
         //End Alex
 
