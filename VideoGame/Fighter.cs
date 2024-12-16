@@ -23,7 +23,7 @@ namespace VideoGame
             name = "Fighter";
         }
 
-        public override string ToString()
+        public string getName()
         {
             return name;
         }
